@@ -15,8 +15,6 @@ fps = 5
 centerx = SCREEN_WIDTH //2
 centery = SCREEN_HEIGHT // 2
 sunRadius= 30
-orbitxRadius = 350
-orbityRadius = 200
 ballRadius = 20
 
 def draw_sun():
@@ -28,15 +26,12 @@ def draw_orbit1():
 def draw_orbit2():
     pygame.draw.ellipse(screen, WHITE, [125, 220, 550, 180], 1)
 
-def draw_balls_1(degree):
+def draw_balls(degree,orbitxRadius,orbityRadius,color):
     x = int(math.cos(degree * math.pi /180) * orbitxRadius) + centerx
     y = int(math.sin(degree * math.pi /180) *orbityRadius) + centery
-    pygame.draw.circle(screen, BLUE, (x, y), ballRadius)
+    pygame.draw.circle(screen, color, (x, y), ballRadius)
    
-def draw_balls_2(degree):
-    x = int(math.cos(degree * math.pi /180) * 275) + centerx
-    y = int(math.sin(degree * math.pi /180) *90) + centery
-    pygame.draw.circle(screen, GREEN, (x, y), ballRadius)
+
 
 screen = pygame.display.set_mode([SCREEN_WIDTH, SCREEN_HEIGHT])
 pygame.display.set_caption("Elliptical-Orbit")
@@ -52,8 +47,8 @@ while True :
         draw_sun()
         draw_orbit1()
         draw_orbit2()
-        draw_balls_1(degree)
-        draw_balls_2(degree)
+        draw_balls(degree,275,90,GREEN)
+        draw_balls(degree*2,350,200,BLUE)
         pygame.display.update()
         clock.tick(fps)
     
