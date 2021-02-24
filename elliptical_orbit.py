@@ -1,7 +1,7 @@
 import pygame
 import sys
 import math
-from random import randint
+
 
 pygame.init()
 SCREEN_WIDTH = 800
@@ -47,8 +47,8 @@ while True :
         draw_sun()
         draw_orbit1()
         draw_orbit2()
-        draw_balls(degree,275,90,GREEN)
-        draw_balls(degree*2,350,200,BLUE)
+        draw_balls(degree*2,275,90,GREEN)
+        draw_balls(degree,350,200,BLUE)
         pygame.display.update()
         clock.tick(fps)
     
